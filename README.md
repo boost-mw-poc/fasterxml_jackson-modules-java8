@@ -24,11 +24,8 @@ all of which are built from this repository, and accessed and used as separate J
 
 Jackson 3.0 changes things as it requires Java 8 to work and can thereby directly supported features.
 
-Because of this `parameter-names` and `datatypes` modules are merged into `jackson-databind`
-and need not be registered; `datetime` module (`JavaTimeModule`) remains separate module due to its size
-and configurability options.
-
-So you will only need to separately add "Java 8 Date/time" module (see above for description)
+Because of this, all 3 modules are merged into `jackson-databind`
+and need not be registered (as of Jacksson `3.0.0-rc3`)
 
 ## License
 
@@ -36,7 +33,7 @@ All modules are licensed under [Apache License 2.0](http://www.apache.org/licens
 
 ## Status
 
-[![Build Status](https://travis-ci.org/FasterXML/jackson-modules-java8.svg)](https://travis-ci.org/FasterXML/jackson-modules-java8)
+[![Build status (github)](https://github.com/FasterXML/jackson-databind/actions/workflows/main.yml/badge.svg)](https://github.com/FasterXML/jackson-databind/actions/workflows/main.yml)
 [![Tidelift](https://tidelift.com/badges/package/maven/com.fasterxml.jackson.datatype:jackson-datatype-jsr310)](https://tidelift.com/subscription/pkg/maven-com-fasterxml-jackson-datatype-jackson-datatype-jsr310?utm_source=maven-com-fasterxml-jackson-datatype-jackson-datatype-jsr310&utm_medium=referral&utm_campaign=readme)
 
 ## Usage
@@ -46,19 +43,19 @@ All modules are licensed under [Apache License 2.0](http://www.apache.org/licens
 To include modules, you use some or all of:
 
 ```xml
-<!--	Parameter names	-->
+<!-- parameter names -->
 <dependency>
     <groupId>com.fasterxml.jackson.module</groupId>
     <artifactId>jackson-module-parameter-names</artifactId>
 </dependency>
 
-<!--	Java 8 Date/time	-->
+<!-- Java 8 Date/time -->
 <dependency>
     <groupId>com.fasterxml.jackson.datatype</groupId>
     <artifactId>jackson-datatype-jsr310</artifactId>
 </dependency>
 
-<!--	Java 8 Datatypes	-->
+<!-- Java 8 Datatypes -->
 <dependency>
     <groupId>com.fasterxml.jackson.datatype</groupId>
     <artifactId>jackson-datatype-jdk8</artifactId>
