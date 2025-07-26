@@ -31,6 +31,12 @@ No changes since 2.19.0
 #364: Deserialization of Month in ONE_BASED_MONTHS mode fails for value "12"
  (reported, fix contributed by Boleslav B)
 
+2.18.5 (not yet released)
+
+#372: `java.util.Optional` deserialisation fails when using `TypeFactory.defaultInstance`
+  for creating `JavaType` for `Optional<?>`
+ (reported by @mattlocker)
+
 2.18.4 (06-May-2025)
 
 #291: `InstantDeserializer` fails to parse negative numeric timestamp strings
