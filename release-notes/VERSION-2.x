@@ -8,7 +8,7 @@ Modules:
 === Releases ===
 ------------------------------------------------------------------------
 
-2.18.5 (not yet released)
+2.18.5 (27-Oct-2025)
 
 #372: `java.util.Optional` deserialisation fails when using `TypeFactory.defaultInstance`
   for creating `JavaType` for `Optional<?>`
