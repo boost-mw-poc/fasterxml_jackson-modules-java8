@@ -20,12 +20,11 @@ When used with Jackson 2.x, Java 8 support is provided via 3 separate modules:
 all of which are built from this repository, and accessed and used as separate Jackson modules
 (with separate Maven artifacts).
 
-### Jackson 3.0
+### Jackson 3.x
 
-Jackson 3.0 changes things as it requires Java 8 to work and can thereby directly supported features.
+Jackson 3.0 changes things as it requires Java 17 to work and can thereby directly supported features.
 
-Because of this, all 3 modules are merged into `jackson-databind`
-and need not be registered (as of Jacksson `3.0.0-rc3`)
+Because of this, all 3 modules are merged into `jackson-databind` and need not be registered (as of Jackson `3.0.0`)
 
 ## License
 
@@ -33,7 +32,7 @@ All modules are licensed under [Apache License 2.0](http://www.apache.org/licens
 
 ## Status
 
-[![Build status (github)](https://github.com/FasterXML/jackson-databind/actions/workflows/main.yml/badge.svg)](https://github.com/FasterXML/jackson-databind/actions/workflows/main.yml)
+[![Build status (github)](https://github.com/FasterXML/jackson-modules-java8/actions/workflows/main.yml/badge.svg)](https://github.com/FasterXML/jackson-modules-java8/actions/workflows/main.yml)
 [![Tidelift](https://tidelift.com/badges/package/maven/com.fasterxml.jackson.datatype:jackson-datatype-jsr310)](https://tidelift.com/subscription/pkg/maven-com-fasterxml-jackson-datatype-jackson-datatype-jsr310?utm_source=maven-com-fasterxml-jackson-datatype-jackson-datatype-jsr310&utm_medium=referral&utm_campaign=readme)
 
 ## Usage
