@@ -128,4 +128,4 @@ Following developers have committer access to this project.
 
 ## More
 
-See [Wiki](../../wiki) for more information (javadocs).
+See [Wiki](../../wiki) for more information.
