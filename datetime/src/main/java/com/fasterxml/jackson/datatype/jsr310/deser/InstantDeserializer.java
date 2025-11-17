@@ -200,12 +200,12 @@ public class InstantDeserializer<T extends Temporal>
      */
     @Deprecated()
     protected InstantDeserializer(Class<T> supportedType,
-                                  DateTimeFormatter formatter,
-                                  Function<TemporalAccessor, T> parsedToValue,
-                                  Function<FromIntegerArguments, T> fromMilliseconds,
-                                  Function<FromDecimalArguments, T> fromNanoseconds,
-                                  BiFunction<T, ZoneId, T> adjust,
-                                  boolean replaceZeroOffsetAsZ
+            DateTimeFormatter formatter,
+            Function<TemporalAccessor, T> parsedToValue,
+            Function<FromIntegerArguments, T> fromMilliseconds,
+            Function<FromDecimalArguments, T> fromNanoseconds,
+            BiFunction<T, ZoneId, T> adjust,
+            boolean replaceZeroOffsetAsZ
     ) {
         this(supportedType, formatter, parsedToValue, fromMilliseconds, fromNanoseconds,
                 adjust, replaceZeroOffsetAsZ,
@@ -299,8 +299,11 @@ public class InstantDeserializer<T extends Temporal>
         _alwaysAllowStringifiedDateTimestamps = features.isEnabled(JavaTimeFeature.ALWAYS_ALLOW_STRINGIFIED_DATE_TIMESTAMPS);
     }
 
+    /**
+     * NOTE: {@code public} since 2.21
+     */
     @Override
-    protected InstantDeserializer<T> withDateFormat(DateTimeFormatter dtf) {
+    public InstantDeserializer<T> withDateFormat(DateTimeFormatter dtf) {
         if (dtf == _formatter) {
             return this;
         }
