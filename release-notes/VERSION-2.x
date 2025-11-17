@@ -31,6 +31,10 @@ No changes since 2.19.0
 
 2.19.0 (24-Apr-2025)
 
+#307: Instant precision should be retained in ObjectMapper#readTree (add
+  `JsonNodeFeature.USE_BIG_DECIMAL_FOR_FLOATS` to force use of `BigDecimal`
+  for `JsonNode` reads)
+ (reported by @jzheaux)
 #336: Optimize `InstantDeserializer` `addInColonToOffsetIfMissing()`
  (contributed by David S)
 #337: Negative `Duration` does not round-trip properly with
