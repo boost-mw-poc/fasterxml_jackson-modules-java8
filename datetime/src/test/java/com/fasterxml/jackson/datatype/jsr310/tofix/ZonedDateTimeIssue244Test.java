@@ -13,6 +13,8 @@ import com.fasterxml.jackson.datatype.jsr310.testutil.failure.JacksonTestFailure
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// 17-Nov-2025, tatu: Issue closed as not planned to be fixed: unit test
+//    left in for now, likely to be removed in future.
 /**
  * Test case for https://github.com/FasterXML/jackson-modules-java8/issues/244
  */
