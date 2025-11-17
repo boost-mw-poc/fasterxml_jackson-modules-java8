@@ -1,4 +1,4 @@
-package com.fasterxml.jackson.datatype.jsr310.tofix;
+package com.fasterxml.jackson.datatype.jsr310.deser;
 
 import java.time.Instant;
 
@@ -6,14 +6,15 @@ import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.cfg.JsonNodeFeature;
 import com.fasterxml.jackson.datatype.jsr310.ModuleTestBase;
-import com.fasterxml.jackson.datatype.jsr310.testutil.failure.JacksonTestFailureExpected;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 // [modules-java8#307]: Loss of precision via JsonNode for BigDecimal-valued
 // things (like Instant)
-public class InstanceViaBigDecimal307Test extends ModuleTestBase
+// Solved via `JsonNodeFeature.USE_BIG_DECIMAL_FOR_FLOATS` added in Jackson 2.19
+public class InstantViaBigDecimal307Test extends ModuleTestBase
 {
     static class Wrapper307 {
         public Instant value;
@@ -24,7 +25,10 @@ public class InstanceViaBigDecimal307Test extends ModuleTestBase
 
     private final Instant ISSUED_AT = Instant.ofEpochSecond(1234567890).plusNanos(123456789);
 
-    private ObjectMapper MAPPER = newMapper();
+    private ObjectMapper MAPPER = mapperBuilder()
+            // added in 2.19
+            .enable(JsonNodeFeature.USE_BIG_DECIMAL_FOR_FLOATS)
+            .build();
 
     @Test
     public void instantViaReadValue() throws Exception {
@@ -33,7 +37,6 @@ public class InstanceViaBigDecimal307Test extends ModuleTestBase
          assertEquals(ISSUED_AT, deserialized.value);
     }
 
-    @JacksonTestFailureExpected
     @Test
     public void instantViaReadTree() throws Exception {
         String serialized = MAPPER.writeValueAsString(new Wrapper307(ISSUED_AT));
