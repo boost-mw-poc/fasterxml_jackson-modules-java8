@@ -35,6 +35,28 @@ public class OffsetDateTimeSerializer extends InstantSerializerBase<OffsetDateTi
         super(base, useTimestamp, base._useNanoseconds, formatter, shape);
     }
 
+    /**
+     * Method for constructing a new {@code OffsetDateTimeSerializer} with settings
+     * of this serializer but with custom {@link DateTimeFormatter} overrides.
+     * Commonly used on {@code INSTANCE} like so:
+     *<pre>
+     *  DateTimeFormatter dtf = new DateTimeFormatterBuilder()
+     *          .append(DateTimeFormatter.ISO_LOCAL_DATE)
+     *          .appendLiteral('T')
+     *          // and so on
+     *          .toFormatter();
+     *  OffsetDateTimeSerializer ser = OffsetDateTimeSerializer.INSTANCE
+     *          .withFormatter(dtf);
+     *  // register via Module
+     *</pre>
+     *
+     * @since 2.21
+     */
+    public OffsetDateTimeSerializer withFormatter(DateTimeFormatter formatter)
+    {
+        return new OffsetDateTimeSerializer(this, _useTimestamp, formatter, _shape);
+    }
+
     @Override
     protected JSR310FormattedSerializerBase<?> withFormat(Boolean useTimestamp,
         DateTimeFormatter formatter, JsonFormat.Shape shape)
