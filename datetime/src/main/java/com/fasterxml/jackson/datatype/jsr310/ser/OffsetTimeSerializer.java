@@ -89,7 +89,7 @@ public class OffsetTimeSerializer extends JSR310FormattedSerializerBase<OffsetTi
         typeSer.writeTypeSuffix(g, typeIdDef);
     }
 
-    private final void _serializeAsArrayContents(OffsetTime value, JsonGenerator g,
+    protected void _serializeAsArrayContents(OffsetTime value, JsonGenerator g,
             SerializerProvider provider) throws IOException
     {
         g.writeNumber(value.getHour());
@@ -99,7 +99,7 @@ public class OffsetTimeSerializer extends JSR310FormattedSerializerBase<OffsetTi
         if ((secs > 0) || (nanos > 0)) {
             g.writeNumber(secs);
             if (nanos > 0) {
-                if(useNanoseconds(provider)) {
+                if (useNanoseconds(provider)) {
                     g.writeNumber(nanos);
                 } else {
                     g.writeNumber(value.get(ChronoField.MILLI_OF_SECOND));
