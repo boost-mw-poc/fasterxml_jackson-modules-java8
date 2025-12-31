@@ -266,19 +266,25 @@ public final class JavaTimeModule
     {
         final int argCount = argTypes.length;
         for (AnnotatedMethod method : cls.getFactoryMethods()) {
-            if (!name.equals(method.getName())
-                    || (method.getParameterCount() != argCount)) {
-                continue;
+            if (name.equals(method.getName())
+                    && (method.getParameterCount() == argCount)
+                    && _allArgTypesMatch(argTypes, method)) {
+                    return method;
             }
-            for (int i = 0; i < argCount; ++i) {
-                Class<?> argType = method.getParameter(i).getRawType();
-                if (!argType.isAssignableFrom(argTypes[i])) {
-                    continue;
-                }
-            }
-            return method;
         }
         return null;
+    }
+
+    // @since 2.21
+    private boolean _allArgTypesMatch(Class<?>[] expectedArgTypes, AnnotatedMethod method)
+    {
+        for (int i = 0, len = expectedArgTypes.length; i < len; ++i) {
+            Class<?> argType = method.getParameter(i).getRawType();
+            if (!argType.isAssignableFrom(expectedArgTypes[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
