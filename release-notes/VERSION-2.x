@@ -20,6 +20,7 @@ Modules:
 #381: Fix a potential problem in `JavaTimeModule._findFactory()`
  (reported, fix by, Albert L)
 
+2.20.2 (19-Jan-2025)
 2.20.1 (30-Oct-2025)
 2.20.0 (28-Aug-2025)
 
