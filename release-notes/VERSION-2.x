@@ -8,6 +8,10 @@ Modules:
 === Releases ===
 ------------------------------------------------------------------------
 
+2.18.6 (22-Feb-2026)
+
+No changes since 2.18.5
+
 2.18.5 (27-Oct-2025)
 
 #372: `java.util.Optional` deserialisation fails when using `TypeFactory.defaultInstance`
