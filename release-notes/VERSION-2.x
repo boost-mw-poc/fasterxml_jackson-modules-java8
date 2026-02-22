@@ -39,6 +39,10 @@ No changes since 2.19.0
 #364: Deserialization of Month in ONE_BASED_MONTHS mode fails for value "12"
  (reported, fix contributed by Boleslav B)
 
+2.18.6 (22-Feb-2026)
+
+No changes since 2.18.5
+
 2.18.5 (27-Oct-2025)
 
 #372: `java.util.Optional` deserialisation fails when using `TypeFactory.defaultInstance`
