@@ -20,6 +20,7 @@ Modules:
 #381: Fix a potential problem in `JavaTimeModule._findFactory()`
  (reported, fix by, Albert L)
 
+2.20.2 (19-Jan-2025)
 2.20.1 (30-Oct-2025)
 2.20.0 (28-Aug-2025)
 
@@ -49,6 +50,10 @@ No changes since 2.19.0
  (contributed by Henning P)
 #364: Deserialization of Month in ONE_BASED_MONTHS mode fails for value "12"
  (reported, fix contributed by Boleslav B)
+
+2.18.6 (22-Feb-2026)
+
+No changes since 2.18.5
 
 2.18.5 (27-Oct-2025)
 
